@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+
+
+<head>
+
+  <title>Yufan Zheng's Blog</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description" content="Yufan Zheng is currently a senior student at Nanfang College of Sun Yat-sen University">
+  <meta name="keywords" content="Yufan Zheng, Study, Research, Work">
+  <meta name="author" content="Yufan Zheng" />
+
+  <link rel="stylesheet" href="w3.css">
+
+  <style>
+  .w3-sidebar a {font-family: "Times New Roman", serif}
+  body,h1,h2,h3,h4,h5,h6,.w3-wide {font-family: "Times New Roman", serif;}
+  div{margin:20px;border:0;padding:0;}
+  </style>
+
+  <link rel="icon" type="image/png" href="img/icons.png">
+  <!--
+  <script src="jquery.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    // Add smooth scrolling to all links
+    $("a").on('click', function(event) {
+
+      // Make sure this.hash has a value before overriding default behavior
+      if (this.hash !== "") {
+        // Prevent default anchor click behavior
+        event.preventDefault();
+
+        // Store hash
+        var hash = this.hash;
+
+        // Using jQuery's animate() method to add smooth page scroll
+        // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+        $('html, body').animate({
+          scrollTop: $(hash).offset().top
+        }, 800, function(){
+
+          // Add hash (#) to URL when done scrolling (default click behavior)
+          window.location.hash = hash;
+        });
+      } // End if
+    });
+  });
+  </script>
+  //-->
+  
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+</head>
+
+
+<body class="w3-content" style="max-width:1000px">
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-collapse w3-top w3-right" style="z-index:3;width:150px" id="mySidebar">
+  <div class="w3-container w3-display-container w3-padding-16">
+    <h3><b>Content</b></h3>
+  </div>
+  <div class="w3-padding-64 w3-text-light-grey w3-large" style="font-weight:bold">
+    <a href="https://yufanzheng.github.io" class="w3-bar-item w3-button">Home</a>
+    <a href="#research" class="w3-bar-item w3-button">Research</a>
+    <a href="#research" class="w3-bar-item w3-button">Note</a>
+    <a href="#work" class="w3-bar-item w3-button">Tool</a>
+  </div>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="w3-bar w3-top w3-hide-large w3-black w3-xlarge">
+  <div class="w3-bar-item w3-padding-24">Content</div>
+  <a href="javascript:void(0)" class="w3-bar-item w3-button w3-padding-24 w3-right"  style="font-stretch: extra-expanded;" onclick="w3_open()"><b>≡</b></a>
+  </div>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:150px">
+
+<!-- Push down content on small screens -->
+<div class="w3-hide-large" style="margin-top:83px"></div>
+
+<!-- The Home Section -->
+    <div class="w3-container w3-center w3-padding-32" id="home">
+      <h1>Yufan Zheng</h1>
+        <p class="w3-justify" style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;max-width:600px">
+          Hello, this is my blog about study, research, and work. 
+    </p>
+
+      <p class="w3-center"> The art of living is to know when to hold fast and when to let go. </p>
+        </tbody></table>
+    </div>
+
+   <div class="w3-container w3-light-grey w3-padding-32" id="research">
+    <h2>Research</h2>
+       <p><li><a href="https://yufanzheng.notion.site/AI-8313c103fed64e778b9c79292c7c45f3?pvs=4">AI求解方程</a></li></p>
+   </div>
+
+   <div class="w3-container w3-light-grey w3-padding-32" id="note">
+    <h2>Note</h2>
+       <p><li><a href="https://yufanzheng.notion.site/e79c158712fd42d99c7b217d4a0753a9?v=3bb613c3947241ca989dafb1b86d19c4&pvs=4">Reading Research Papers</a></li></p>
+   </div>
+
+  <div class="w3-container w3-light-grey w3-padding-32" id="tool">
+    <h2>Tool</h2>
+       <p><li><a href="blog/work/00001/index.html">基于ubuntu和docker的深度学习环境配置-20221009</a></li></p>
+   </div>
+
+
+<!-- The Thanks Section -->
+
+  <div class="w3-light-grey w3-center w3-padding-24">
+    Welcome to use this website's <a href="https://github.com/YunheWang/HomePage">source code</a>, just add a link back to here. <a href="https://www.wangyunhe.site/">&#10025;</a></br>
+  </div>
+
+<script>
+// Accordion 
+function myAccFunc() {
+  var x = document.getElementById("demoAcc");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else {
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+// Click on the "Jeans" link on page load to open the accordion for demo purposes
+document.getElementById("myBtn").click();
+
+
+// Open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+</script>
+
+</body>
+</html>
