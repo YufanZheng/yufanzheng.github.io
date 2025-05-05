@@ -20,11 +20,6 @@
     }
 
     header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 999;
       display: flex;
       justify-content: flex-start;
       gap: 10px;
@@ -50,7 +45,7 @@
 
     main {
       max-width: 800px;
-      margin: 100px auto 40px; /* 顶部留空，避免 header 遮挡 */
+      margin: 40px auto;
       background: white;
       padding: 40px 30px;
       border-radius: 10px;
@@ -140,27 +135,6 @@
     #inline-toc a:hover {
       text-decoration: underline;
     }
-
-    /* 返回顶部按钮 */
-    #back-to-top {
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      padding: 8px 14px;
-      background: #2980b9;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      font-size: 14px;
-      cursor: pointer;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      z-index: 999;
-      display: none;
-    }
-
-    #back-to-top:hover {
-      background: #1c6da8;
-    }
   </style>
 </head>
 <body>
@@ -173,8 +147,6 @@
   <main>
     <div id="content">Loading content...</div>
   </main>
-
-  <button id="back-to-top">↑ Top</button>
 
   <script>
     const params = new URLSearchParams(window.location.search);
@@ -233,16 +205,6 @@
       const content = document.getElementById('content');
       content.insertBefore(toc, content.firstChild);
     }
-
-    // 返回顶部按钮控制
-    const backBtn = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-      backBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
-    });
-
-    backBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
   </script>
 </body>
 </html>
