@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Markdown List</title>
+</head>
+<body>
+  <h1>📄 Markdown Files</h1>
+  <ul id="file-list"></ul>
+
+  <script>
+    const files = ['blog/intro.md', 'blog/guide.md', 'blog/changelog.md'];
+  
+    const list = document.getElementById('file-list');
+  
+    files.forEach(file => {
+      const li = document.createElement('li');
+      const link = document.createElement('a');
+  
+      // 显示名：去掉路径、后缀，并替换下划线为空格
+      const filename = file.split('/').pop();       // "intro.md"
+      const nameNoExt = filename.replace('.md', ''); // "intro"
+      const displayName = nameNoExt.replace(/_/g, ' '); // "my file"
+  
+      link.href = `viewer.html?file=${encodeURIComponent(file)}`;
+      link.textContent = displayName;
+  
+      li.appendChild(link);
+      list.appendChild(li);
+    });
+  </script>  
+</body>
+</html>

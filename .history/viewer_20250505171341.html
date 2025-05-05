@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Markdown Viewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .home-link {
+      text-decoration: none;
+      color: #2980b9;
+      font-weight: bold;
+      background: #ecf0f1;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+
+    .home-link:hover {
+      background: #d0e4f7;
+    }
+
+    #title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      padding: 40px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    #content h1, #content h2, #content h3 {
+      color: #34495e;
+    }
+
+    pre {
+      background: #f6f8fa;
+      padding: 12px;
+      overflow-x: auto;
+      border-radius: 6px;
+    }
+
+    code {
+      font-family: monospace;
+      background: #f0f0f0;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+
+    blockquote {
+      border-left: 4px solid #ddd;
+      padding-left: 15px;
+      color: #555;
+      margin-left: 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #f0f0f0;
+    }
+
+    #content img {
+        max-width: 80%;
+        height: auto;
+        display: block;
+        margin: 1.5em auto;
+        border-radius: 6px;
+      
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <a class="home-link" href="index.html">🏠 Home</a>
+    <div id="title">Loading...</div>
+  </header>
+
+  <main>
+    <div id="content">Loading content...</div>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const file = params.get('file');
+
+    if (!file) {
+      document.getElementById('content').innerHTML = '<p style="color:red;">No file specified.</p>';
+      document.getElementById('title').textContent = 'Error';
+    } else {
+      const filename = file.split('/').pop().replace('.md', '').replace(/_\d{8}$/, '').replace(/_/g, ' ');
+      document.getElementById('title').textContent = filename;
+
+      fetch(file)
+        .then(res => {
+          if (!res.ok) throw new Error('File not found');
+          return res.text();
+        })
+        .then(md => {
+          const html = marked.parse(md, {
+            highlight: (code, lang) => {
+              return hljs.highlightAuto(code).value;
+            }
+          });
+          document.getElementById('content').innerHTML = html;
+          hljs.highlightAll();
+        })
+        .catch(err => {
+          document.getElementById('content').innerHTML = `<p style="color:red;">Error: ${err.message}</p>`;
+          document.getElementById('title').textContent = 'Load failed';
+        });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Markdown List</title>
+</head>
+<body>
+  <h1>📄 Markdown Files</h1>
+  <ul id="file-list"></ul>
+
+  <script>
+    const files = ['blog/intro.md', 'md/guide.md', 'md/changelog.md'];
+    const list = document.getElementById('file-list');
+
+    files.forEach(file => {
+      const li = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = `viewer.html?file=${encodeURIComponent(file)}`;
+      link.textContent = file.split('/').pop(); // 显示 intro.md
+      li.appendChild(link);
+      list.appendChild(li);
+    });
+  </script>
+</body>
+</html>

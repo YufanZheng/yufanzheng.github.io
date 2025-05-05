@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>📄 Yufan's Blogs</title>
+  <title>📄 Markdown Explorer</title>
   <style>
     body {
       font-family: "Segoe UI", sans-serif;
@@ -12,39 +12,10 @@
       color: #333;
     }
 
-    /* 顶部导航栏 */
-    .topbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1000px;
-      margin: 20px auto 10px;
-      padding: 0 10px;
-    }
-
-    .topbar h1 {
-      margin: 0;
-      font-size: 1rem;
+    h1 {
+      text-align: center;
+      margin: 40px 0 20px;
       color: #2c3e50;
-    }
-
-    .topbar .right-info {
-      font-size: 0.95rem;
-      color: #555;
-    }
-
-    .topbar .home-link {
-      background-color: #ecf0f1;
-      padding: 5px 10px;
-      border-radius: 6px;
-      text-decoration: none;
-      margin-right: 15px;
-      color: #2980b9;
-      font-weight: bold;
-    }
-
-    .topbar .home-link:hover {
-      background-color: #d0e4f7;
     }
 
     nav {
@@ -111,7 +82,6 @@
     ul {
       list-style: none;
       padding-left: 0;
-      margin-top: 10px;
     }
 
     li {
@@ -121,10 +91,6 @@
       border-radius: 8px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
       transition: background-color 0.3s, transform 0.2s;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
     }
 
     li:hover {
@@ -136,32 +102,18 @@
       text-decoration: none;
       color: #2980b9;
       font-size: 1.05rem;
-      flex-grow: 1;
     }
 
     .date-label {
       font-size: 0.85rem;
       color: #999;
-      min-width: 100px;
-      text-align: right;
+      margin-left: 8px;
     }
   </style>
 </head>
 <body>
-
-  <!-- 顶部导航栏 -->
-  <div class="topbar">
-    <h1>📄 Blogs & Notes</h1>
-    <div class="right-info">
-      <a class="home-link" href="index.html">🏠 Home</a>
-      By Yufan Zheng
-    </div>
-  </div>
-
-  <!-- 分类导航 -->
+  <h1>📂 Markdown Explorer</h1>
   <nav id="category-nav"></nav>
-
-  <!-- 内容 -->
   <div id="content"></div>
 
   <script>
@@ -173,10 +125,6 @@
       "📝 Logs": [
         "blog/changelog_20211211.md",
         "blog/update_20211201.md"
-      ],
-      "📚 Reference": [
-        "blog/example_file_20230115.md",
-        "blog/markdown_style_20220720.md"
       ]
     };
 
@@ -214,10 +162,12 @@
       section.appendChild(ul);
       container.appendChild(section);
 
+      // 生成文件数据
       const fileItems = files.map(file => {
         const filename = file.split('/').pop();
         const nameNoExt = filename.replace('.md', '');
-        const displayName = nameNoExt.replace(/_\d{8}$/, '').replace(/_/g, ' ');
+        const displayName = nameNoExt.replace(/_/g, ' ');
+
         const matchDate = filename.match(/_(\d{8})\.md$/);
         const date = matchDate ? formatDate(matchDate[1]) : null;
 
@@ -229,6 +179,7 @@
         };
       });
 
+      // 渲染列表函数
       function renderList(sortBy = "name") {
         ul.innerHTML = '';
         const sorted = [...fileItems];
@@ -246,18 +197,22 @@
           link.textContent = item.name;
           link.className = 'file-link';
 
-          const dateSpan = document.createElement('span');
-          dateSpan.className = 'date-label';
-          dateSpan.textContent = item.date || '';
-
           li.appendChild(link);
-          li.appendChild(dateSpan);
+          if (item.date) {
+            const span = document.createElement('span');
+            span.className = 'date-label';
+            span.textContent = `(${item.date})`;
+            li.appendChild(span);
+          }
+
           ul.appendChild(li);
         });
       }
 
+      // 初始渲染
       renderList('name');
 
+      // 添加排序按钮事件
       sortBtns.querySelectorAll('button').forEach(btn => {
         btn.addEventListener('click', () => {
           const sortType = btn.getAttribute('data-sort');
@@ -267,7 +222,7 @@
     }
 
     function formatDate(str) {
-      return `${str.slice(0, 4)}-${str.slice(4, 6)}-${str.slice(6, 8)}`;
+      return `${str.slice(0,4)}-${str.slice(4,6)}-${str.slice(6,8)}`;
     }
   </script>
 </body>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Markdown Categories</title>
+</head>
+<body>
+  <h1>📄 Categorized Markdown Files</h1>
+  <div id="content"></div>
+
+  <script>
+    const fileCategories = {
+      "Tutorials": ["blog/intro.md", "blog/guide.md"],
+      "Logs": ["blog/changelog.md"]
+    };
+
+    const container = document.getElementById('content');
+
+    for (const [category, files] of Object.entries(fileCategories)) {
+      const catHeader = document.createElement('h2');
+      catHeader.textContent = category;
+      container.appendChild(catHeader);
+
+      const ul = document.createElement('ul');
+
+      files.forEach(file => {
+        const li = document.createElement('li');
+        const link = document.createElement('a');
+
+        const filename = file.split('/').pop();              // intro.md
+        const nameNoExt = filename.replace('.md', '');       // intro
+        const displayName = nameNoExt.replace(/_/g, ' ');    // intro → "intro", my_file → "my file"
+
+        link.href = `viewer.html?file=${encodeURIComponent(file)}`;
+        link.textContent = displayName;
+
+        li.appendChild(link);
+        ul.appendChild(li);
+      });
+
+      container.appendChild(ul);
+    }
+  </script>
+</body>
+</html>
