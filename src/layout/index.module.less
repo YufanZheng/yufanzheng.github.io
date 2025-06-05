@@ -1,0 +1,51 @@
+@minWidth: 1000px;
+@maxWidth: 1200px;
+
+.layout {
+  height: 100%;
+  .navbar {
+    & > .content {
+      user-select: none;
+      font-size: 20px;
+      display: flex;
+      justify-content: space-between;
+      color: white;
+      width: 100%;
+      min-width: @minWidth;
+      max-width: @maxWidth;
+      margin: 0 auto;
+    }
+  }
+  & > .main {
+    width: 100%;
+    min-width: @minWidth;
+    max-width: @maxWidth;
+    margin: 0 auto;
+    padding: 20px 0;
+    .sections {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      section {
+        margin: 4px 0;
+        width: 100%;
+        &.toolbar {
+          display: flex;
+          justify-content: space-between;
+          .advanced {
+            display: flex;
+          }
+          .switch {
+            &.active {
+              color: #1890ff
+            }
+          }
+        }
+        &.fileList {
+          flex-grow: 1;
+          overflow: auto;
+        }
+      }
+    }
+  }
+}
