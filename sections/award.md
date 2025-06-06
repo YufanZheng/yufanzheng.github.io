@@ -1,0 +1,5 @@
+# Award
+
+- 2020 - 2021, Outstanding Graduates of NanFang College of Sun Yat-Sen University
+- 2019 - 2020, National Scholarship, China
+- Oct 2019, Merit award conference paper in 2019 IEEE International Symposium on Product Compliance Engineering-Asia

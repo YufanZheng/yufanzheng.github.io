@@ -184,6 +184,7 @@ sections.forEach(sec => {
   fetch(sec.file)
     .then(res => res.text())
     .then(md => {
+      // 只替换 md-content 的内容
       document.querySelector(`#${sec.id} .md-content`).innerHTML = marked.parse(md);
     });
 });

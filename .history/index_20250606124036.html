@@ -47,18 +47,17 @@
     }
 
     .md-content h2 {
-      border-left: 4px solid #23334a;
       position: relative;
-      padding-left: 15px;
+      padding-left: 32px; /* 原来是20px，适当加大 */
       font-weight: bold;
-      color: #132a4c;
+      color: #89929f;
       margin-top: 28px;
       margin-bottom: 14px;
     }
 
 
     .md-content h3 {
-      border-left: 4px solid #39414d;
+      border-left: 4px solid #2a5d9f;
       padding-left: 10px;
       background: #f0f4fa;
       color: #444;
@@ -100,12 +99,6 @@
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:170px">
   <div class="w3-hide-large" style="margin-top:83px"></div>
-
-<div class="w3-container w3-center w3-padding-32">
-<img style="height: 400px; width: 400px; object-fit: cover; border-radius: 50%;" alt="Profile photo of Yufan Zheng" src="img/photo.png">
-</div>
-
-
 
   <!-- 动态加载的各个section -->
   <div class="w3-container w3-light-grey w3-padding-32" id="home-section">
@@ -184,6 +177,7 @@ sections.forEach(sec => {
   fetch(sec.file)
     .then(res => res.text())
     .then(md => {
+      // 只替换 md-content 的内容
       document.querySelector(`#${sec.id} .md-content`).innerHTML = marked.parse(md);
     });
 });

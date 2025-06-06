@@ -47,11 +47,10 @@
     }
 
     .md-content h2 {
-      border-left: 4px solid #23334a;
       position: relative;
       padding-left: 15px;
       font-weight: bold;
-      color: #132a4c;
+      color: #89929f;
       margin-top: 28px;
       margin-bottom: 14px;
     }
@@ -184,6 +183,7 @@ sections.forEach(sec => {
   fetch(sec.file)
     .then(res => res.text())
     .then(md => {
+      // 只替换 md-content 的内容
       document.querySelector(`#${sec.id} .md-content`).innerHTML = marked.parse(md);
     });
 });
