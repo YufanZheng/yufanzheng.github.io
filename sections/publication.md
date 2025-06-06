@@ -9,15 +9,15 @@
 
 1. **[Impact of human mobility and weather conditions on Dengue mosquito abundance during the COVID-19 pandemic in Hong Kong](https://www.sciencedirect.com/science/article/pii/S2468042725000284)**  
    Yufan Zheng, Keqi Yue, [Eric Wong](https://www.ee.cityu.edu.hk/~ewong/), [Hsiang-Yu Yuan](https://www.cityu.edu.hk/bms/profile/seanyuan.htm/)  
-   Infectious Disease Modelling (JCR Q1) | April 2025
+   Infectious Disease Modelling (JCR Q1) | Apr 2025
 
 2. **[A data-driven study of active meteorological stations and the factors motivating their establishing](https://www.sciencedirect.com/science/article/pii/S2213138823001406)**  
    [Choujun Zhan](https://scholar.google.com/citations?user=CQjEUkAAAAAJ), [Wei Jiang](https://scholar.google.com.hk/citations?hl=zh-CN&user=L8Z_cSsAAAAJ), Yufan Zheng, [Junhui Lu](https://www.researchgate.net/scientific-contributions/Qizhi-Zhang-2169956937)  
-   Sustainable Energy Technologies and Assessments (JCR Q1) | April 2023
+   Sustainable Energy Technologies and Assessments (JCR Q1) | Apr 2023
 
 3. **[Modeling the Spread Dynamics of Multiple-variant Coronavirus Disease under Public Health Interventions: A General Framework](https://www.sciencedirect.com/science/article/pii/S002002552300172X)**  
    [Choujun Zhan](https://scholar.google.com/citations?user=CQjEUkAAAAAJ), Yufan Zheng, [Lujiao Shao](https://www.ee.cityu.edu.hk/~gchen/), [Guanrong Chen](https://www.ee.cityu.edu.hk/~gchen/), [Haijun Zhang](https://dl2link.com/)  
-   Information Sciences (JCR Q1) | February 2023
+   Information Sciences (JCR Q1) | Feb 2023
 
 4. **[Random-Forest-Bagging Broad Learning System with Applications for COVID-19 Pandemic](https://ieeexplore.ieee.org/document/9380648/)**  
    [Choujun Zhan](https://scholar.google.com/citations?user=CQjEUkAAAAAJ), Yufan Zheng, [Haijun Zhang](https://dl2link.com/), [Quansi Wen](https://www.researchgate.net/scientific-contributions/Quansi-Wen-2157669220)  
