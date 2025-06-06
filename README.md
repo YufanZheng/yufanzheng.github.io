@@ -20,10 +20,10 @@ Go to the `sections` folder in your repository and edit or replace the markdown 
 
 ### 3. 启用 GitHub Pages / Enable GitHub Pages
 
-在你的仓库设置（Settings）中，找到 **Pages**，选择分支为 `main`（或 `master`），目录为 `/root`，保存。
-In your repository settings, find **Pages**, select the branch as `main` (or `master`), and the folder as `/root`, then save.
+在你的仓库设置（Settings）中，找到 **Pages**，选择分支为 `main`（或 `master`），目录为 `/root`，保存。参考github.io的[网页](https://pages.github.com/)。
+In your repository settings, find **Pages**, select the branch as `main` (or `master`), and the folder as `/root`, then save. Please find more details on [github.io's website](https://pages.github.com/).
 
-## 4. 访问你的主页 / Visit your homepage
+### 4. 访问你的主页 / Visit your homepage
 
 几分钟后，你可以通过 `https://你的用户名.github.io/仓库名/` 访问你的个人主页。
 After a few minutes, you can visit your homepage at `https://your-username.github.io/your-repo-name/`.
@@ -70,9 +70,9 @@ Just fork, edit markdown, enable Pages, and you’ll have your own academic home
 ## 本地预览 / Local Preview
 
 **请使用本地服务器，否则 fetch 无法加载 markdown 文件。**
-**Please use a local server, otherwise fetch cannot load markdown files.**
+**Please use a local server. Otherwise, fetch cannot load markdown files.**
 
-### 方法一 / Method 1: VS Code Live Server
+### 方法一 / Method 1: VS Code Live Server (more easy)
 
 1. 安装 [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) 插件。
 2. 右键 `index.html`，选择“Open with Live Server”。
@@ -104,7 +104,7 @@ python3 -m http.server 8080
 
 - 页面部分样式和结构参考自 [Yunhe Wang 的主页](https://github.com/YunheWang/HomePage) 和 [photo-gallery-img-template](https://github.com/singhofen/photo-gallery-img-template)。
 - Markdown 渲染使用 [marked.js](https://github.com/markedjs/marked)。
-- Some styles and structure are inspired by [Yunhe Wang's homepage](https://github.com/YunheWang/HomePage) and [photo-gallery-img-template](https://github.com/singhofen/photo-gallery-img-template).
+- Some styles and structures are inspired by [Yunhe Wang's homepage](https://github.com/YunheWang/HomePage) and [photo-gallery-img-template](https://github.com/singhofen/photo-gallery-img-template).
 - Markdown rendering uses [marked.js](https://github.com/markedjs/marked).
 
 ---
