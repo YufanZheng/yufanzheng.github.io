@@ -1,5 +1,10 @@
 # Publication
 
+## Preprint
+
+1. **[Epidemiology-informed Graph Neural Network for Heterogeneity-aware Epidemic Forecasting](https://arxiv.org/abs/2411.17372)**
+   Yufan Zheng, [Wei Jiang](https://openreview.net/profile?id=~Wei_Jiang16), [Alexander Zhou](https://atzhou.com/), [Nguyen Quoc Viet Hung](https://experts.griffith.edu.au/9203-henry-nguyen/about), [Choujun Zhan](https://scholar.google.com/citations?user=CQjEUkAAAAAJ), [Tong Chen](https://about.uq.edu.au/experts/27868) | Nov 2024
+   
 ## Journal Papers
 
 1. **[Impact of human mobility and weather conditions on Dengue mosquito abundance during the COVID-19 pandemic in Hong Kong](https://www.sciencedirect.com/science/article/pii/S2468042725000284)**  
