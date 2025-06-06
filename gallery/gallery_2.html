@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        < Fantastic Studios />
+    </title>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
+    <link rel="stylesheet" href="../css/compact-gallery.css">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md bg-secondary navbar-dark sticky-top">
+        <!-- Brand -->
+        <a class="navbar-brand nav-link" href="#top">
+            < Album Gallery >
+        </a>
+
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery_1.html">Gallery_1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="gallery_2.html">Gallery_2</a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav>
+    
+
+            <!-- Grid GALLERY -->
+            <a name="gallery_1"></a>
+            <section id="grid-padding" class="gallery-block grid-gallery">
+                <div class="container">
+                    <div id="row-1" class="row">
+                        <!-- JS会动态插入栏目标题和图片 -->
+                    </div>
+                </div>
+            </section>
+        </section>
+
+    <footer>
+        <a href="#top">Go to top</a>
+    </footer>
+
+
+
+    <!-- BS4 JQUERY AND POPPER.js CDN's -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+
+    <!-- local script file  -->
+    <script>
+        baguetteBox.run('.compact-gallery', { animation: 'slideIn' });
+
+    </script>
+    <script>
+        fetch('gallery_1.md')
+            .then(res => res.text())
+            .then(md => {
+                const lines = md.split('\n');
+                let galleries = [];
+                let currentGallery = null;
+                let currentFolder = '';
+                let currentImg = null;
+
+                lines.forEach(line => {
+                    if (line.startsWith('# ')) {
+                        // 新栏目前，保存上一张图片
+                        if (currentImg && currentGallery) {
+                            currentGallery.images.push(currentImg);
+                            currentImg = null;
+                        }
+                        // 保存上一个栏目
+                        if (currentGallery) galleries.push(currentGallery);
+                        currentGallery = { name: line.replace('# ', '').trim(), images: [] };
+                        currentFolder = '';
+                    } else if (line.startsWith('## ')) {
+                        // 新文件夹前，保存上一张图片
+                        if (currentImg && currentGallery) {
+                            currentGallery.images.push(currentImg);
+                            currentImg = null;
+                        }
+                        currentFolder = line.replace('## ', '').trim();
+                    } else if (line.startsWith('### ')) {
+                        // 新图片前，保存上一张图片
+                        if (currentImg && currentGallery) {
+                            currentGallery.images.push(currentImg);
+                        }
+                        currentImg = {
+                            name: line.replace('### ', '').trim(),
+                            desc: '',
+                            folder: currentFolder
+                        };
+                    } else if (line.trim() && currentImg) {
+                        currentImg.desc = line.trim();
+                    }
+                });
+                // 循环结束后，保存最后一张图片和栏目
+                if (currentImg && currentGallery) currentGallery.images.push(currentImg);
+                if (currentGallery) galleries.push(currentGallery);
+
+                // 渲染所有栏目
+                const gridRow = document.getElementById('row-1');
+                galleries.forEach(gallery => {
+                    // 动态插入栏目大标题
+                    const h2 = document.createElement('h2');
+                    h2.innerHTML = `&lt; ${gallery.name} /&gt;`;
+                    h2.style.width = "100%";
+                    gridRow.appendChild(h2);
+
+                    const hr = document.createElement('hr');
+                    hr.className = "hr";
+                    gridRow.appendChild(hr);
+
+                    // 图片
+                    gallery.images.forEach(img => {
+                        const col = document.createElement('div');
+                        col.className = "col-md-6 col-lg-4 item";
+                        col.innerHTML = `
+                            <a class="lightbox" href="${img.folder}/${img.name}">
+                                <img class="img-fluid image scale-on-hover" src="${img.folder}/${img.name}">
+                            </a>
+                            <div class="mt-2 text-center text-muted" style="font-size: 0.95em;">${img.desc}</div>
+                        `;
+                        gridRow.appendChild(col);
+                    });
+                });
+            });
+    </script>
+
+</body>
+
+</html>
