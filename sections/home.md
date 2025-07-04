@@ -4,4 +4,4 @@ Yufan Zheng is an incoming PhD student (2025 fall) at the [University of Canberr
 
 ✉️ Email: [zhjpre@gmail.com](mailto:zhjpre@gmail.com) & [ivan.zane1999@gmail.com](mailto:ivan.zane1999@gmail.com)
 
-[🎓 Google Scholar](https://scholar.google.com.hk/citations?user=btkYKNAAAAAJ&hl=zh-CN) / [🆔 ORCID](https://orcid.org/0000-0003-0781-0308) / [🐙 Github](https://github.com/YufanZheng) / [📄 CV](data/CV_YufanZheng.pdf)
+[🎓 Google Scholar](https://scholar.google.com.hk/citations?user=btkYKNAAAAAJ&hl=zh-CN) / [🆔 ORCID](https://orcid.org/0000-0003-0781-0308) / [🐙 Github](https://github.com/YufanZheng) / [📄 CV](data/CV_YufanZheng.pdf) / [👀 LinkedIn](https://www.linkedin.com/in/yufan-zheng-65896229a/)
