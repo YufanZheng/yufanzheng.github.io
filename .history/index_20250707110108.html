@@ -37,6 +37,34 @@
       height: auto;
       border-radius: 10px;
     }
+    .md-content h1 {
+      font-weight: bold;
+      border-bottom: 2px solid #888;
+      color: #222;
+      padding-bottom: 6px;
+      margin-top: 32px;
+      margin-bottom: 18px;
+    }
+
+    .md-content h2 {
+      border-left: 4px solid #23334a;
+      position: relative;
+      padding-left: 15px;
+      font-weight: bold;
+      color: #132a4c;
+      margin-top: 28px;
+      margin-bottom: 14px;
+    }
+
+
+    .md-content h3 {
+      border-left: 4px solid #39414d;
+      padding-left: 10px;
+      background: #f0f4fa;
+      color: #444;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
   </style>
   <link rel="icon" type="image/png" href="img/icons.png">
   <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
@@ -45,9 +73,9 @@
 <body class="w3-content" style="max-width:1200px" background="./img/background.jpg">
 
 <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-bar-block w3-black w3-collapse w3-top" style="z-index:3;width:200px; left:0; right:auto;" id="mySidebar">
+<nav class="w3-sidebar w3-bar-block w3-black w3-collapse w3-top w3-hide-small w3-hide-medium" style="z-index:3;width:200px; left:0; right:auto; height:100vh; overflow-y:auto;" id="mySidebar">
   <div class="w3-container w3-display-container w3-padding-16"></div>
-  <div class="w3-padding-64 w3-text-light-grey w3-large" style="font-weight:bold">
+  <div class="w3-text-light-grey w3-large" style="font-weight:bold">
     <a href="#home-section" class="w3-bar-item w3-button">Home</a>
     <a href="#research-section" class="w3-bar-item w3-button">Research</a>
     <a href="#publication-section" class="w3-bar-item w3-button">Publication</a>
@@ -72,6 +100,12 @@
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:170px">
   <div class="w3-hide-large" style="margin-top:83px"></div>
+
+<div class="w3-container w3-center w3-padding-32">
+<img style="height: 400px; width: 400px; object-fit: cover; border-radius: 50%;" alt="Profile photo of Yufan Zheng" src="img/photo.png">
+</div>
+
+
 
   <!-- 动态加载的各个section -->
   <div class="w3-container w3-light-grey w3-padding-32" id="home-section">
@@ -100,7 +134,7 @@
   <div class="w3-light-grey w3-center w3-padding-24">
     <a href='https://clustrmaps.com/site/1c0i8' title='Visit tracker'><img src='//clustrmaps.com/map_v2.png?cl=ffffff&w=a&t=tt&d=J1bI4qFGbO9WGOU7MvNFl6EppwRkF3XeA3TJuKdNxvI' style="width: 200px; height: auto;"/></a>
     <br>
-    <p>Welcome to use this website's <a href="https://github.com/YunheWang/HomePage">source code</a>, just add a link back to here. <a href="https://www.wangyunhe.site/">&#10025;</a></p>
+    <p>Welcome to use this website's <a href="https://github.com/YufanZheng/yufanzheng.github.io">source code</a>.</p>
     <br>
   </div>
   <!-- End page content -->
@@ -150,7 +184,6 @@ sections.forEach(sec => {
   fetch(sec.file)
     .then(res => res.text())
     .then(md => {
-      // 只替换 md-content 的内容
       document.querySelector(`#${sec.id} .md-content`).innerHTML = marked.parse(md);
     });
 });
