@@ -25,70 +25,26 @@ In your repository settings, find **Pages**, select the branch as `main` (or `ma
 
 ### 4. 访问你的主页 / Visit your homepage
 
-几分钟后，你可以通过 `https://你的用户名.github.io/仓库名/` 访问你的个人主页。
-After a few minutes, you can visit your homepage at `https://your-username.github.io/your-repo-name/`.
+几分钟后，你可以通过 `https://你的用户名.github.io` 访问你的个人主页。
+After a few minutes, you can visit your homepage at `https://your-username.github.io`.
 
 ---
 
 你只需 fork、改 markdown、开启 Pages 即可拥有自己的学术主页，无需写代码！
 Just fork, edit markdown, enable Pages, and you’ll have your own academic homepage—no coding required!
 
-## 目录结构 / Directory Structure
-
-```
-.
-├── index.html                # 主页入口 / Main entry
-├── css/
-│   └── w3.css                # W3.CSS 框架样式 / W3.CSS framework
-├── img/                      # 图片资源 / Images
-├── sections/                 # 各内容区 markdown 文件 / Markdown files for sections
-│   ├── home.md
-│   ├── research.md
-│   ├── publication.md
-│   ├── experience.md
-│   ├── service.md
-│   ├── award.md
-│   └── project.md
-└── ...
-```
-
----
-
-## 功能说明 / Features
-
-- 页面结构和样式基于 [W3.CSS](https://www.w3schools.com/w3css/)。
-- 各内容区通过 JS 动态加载 `sections/` 目录下的 markdown 文件，自动渲染为 HTML。
-- 支持响应式布局，适配不同屏幕。
-- 支持自定义 markdown 标题样式和图片样式。
-- The page structure and style are based on [W3.CSS](https://www.w3schools.com/w3css/).
-- Each section dynamically loads markdown files from the `sections/` directory and renders them as HTML via JavaScript.
-- Responsive design, suitable for different screens.
-- Customizable markdown heading and image styles.
-
----
-
 ## 本地预览 / Local Preview
 
 **请使用本地服务器，否则 fetch 无法加载 markdown 文件。**
 **Please use a local server. Otherwise, fetch cannot load markdown files.**
 
-### 方法一 / Method 1: VS Code Live Server (more easy)
+### Method: VS Code Live Server
 
 1. 安装 [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) 插件。
 2. 右键 `index.html`，选择“Open with Live Server”。
-3. Install the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension.
-4. Right-click `index.html` and choose "Open with Live Server".
-
-### 方法二 / Method 2: Python HTTP Server
-
-在项目根目录下运行 / Run in project root:
-
-```sh
-python3 -m http.server 8080
-```
-
-浏览器访问 / Visit in browser: [http://localhost:8080](http://localhost:8080)
-
+ 
+1. Install the [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) extension.
+2. Right-click `index.html` and choose "Open with Live Server".
 ---
 
 ## 修改内容 / Edit Content
