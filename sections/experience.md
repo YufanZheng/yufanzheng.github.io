@@ -9,5 +9,5 @@
 * **Huangpu Institute of Materials, China**, Intern, *Mar. 2022 - Jun. 2022*
   * Supervisor: [Dr. Feng Ye](http://xnyang.ciac.jl.cn/members/%e5%8f%b6%e5%b3%b0/).
 * **Research Institute of Big Data and Artificial Intelligence, Nanfang College of Sun Yat-sen University, Guangzhou, China**, Research Assistant, *Mar. 2019 - Mar. 2022*
-  * Supervisor: [Dr. Choujun Zhan](https://scholar.google.com/citations?user=CQjEUkAAAAAJ&hl=en), [Prof. Haijuan Zhang](https://dl2link.com/), and [Prof. Guanrong Chen](https://www.ee.cityu.edu.hk/~gchen/).
+  * Supervisor: [Dr. Choujun Zhan](https://scholar.google.com/citations?user=CQjEUkAAAAAJ&hl=en); Advisor: [Prof. Haijuan Zhang](https://dl2link.com/) and [Prof. Guanrong Chen](https://www.ee.cityu.edu.hk/~gchen/).
 * He worked with [Dr. Rocky Chen](https://scholar.google.com.hk/citations?user=07cqSMsAAAAJ&hl=en) from the University of Queensland, Australia, starting in Jul. 2024 to present.
