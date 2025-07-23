@@ -1,7 +1,7 @@
 # Experience
 
 * **University of Canberra, Australia**, Phd Student, *Jul. 2025 - present*
-  * Supervisor: [Prof. Richard Duncan](https://scholar.google.com/citations?user=WX6utqYAAAAJ&hl=en), [Dr. Angus Carnegie](https://scholar.google.com.au/citations?user=u2qwZdYAAAAJ&hl=en), [Dr. Helen Nahrung](https://scholar.google.com.au/citations?user=XPHgGg0AAAAJ&hl=en), and [Prof. Bernd Gruber](https://scholar.google.com.au/citations?user=_YRz_DkAAAAJ&hl=en).
+  * Supervisor: [Prof. Richard Duncan](https://scholar.google.com/citations?user=WX6utqYAAAAJ&hl=en) and [Prof. Bernd Gruber](https://scholar.google.com.au/citations?user=_YRz_DkAAAAJ&hl=en); Advisor: [Dr. Angus Carnegie](https://scholar.google.com.au/citations?user=u2qwZdYAAAAJ&hl=en), [Dr. Helen Nahrung](https://scholar.google.com.au/citations?user=XPHgGg0AAAAJ&hl=en), and [Ms. Jodie Mason](https://www.linkedin.com/in/jodie-mason-11382a7/?originalSubdomain=au).
 * **City University of Hong Kong, China**, Research Assistant, *Dec. 2022 - Jul. 2024*
   * Supervisor: [Dr. Eric Wong](https://www.ee.cityu.edu.hk/~ewong/) and [Dr. Sean Yuan](https://scholar.google.com.hk/citations?user=jgn5L3kAAAAJ&hl=en).
 * **Huangpu Institute of Materials, China**, Algorithm Technician, *Jun. 2022 - Nov. 2022*
