@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
-        Yufan's Album Gallery
+        < Fantastic Studios />
     </title>
     <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
     <link rel="stylesheet" href="../css/compact-gallery.css">
 
 </head>
@@ -19,7 +19,7 @@
     <nav class="navbar navbar-expand-md bg-secondary navbar-dark sticky-top">
         <!-- Brand -->
         <a class="navbar-brand nav-link" href="#top">
-            Album Gallery
+            < Album Gallery >
         </a>
 
         <!-- Toggler/collapsibe Button -->
@@ -34,10 +34,10 @@
                     <a class="nav-link" href="../index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="gallery_1.html">Hong Kong</a>
+                    <a class="nav-link" href="gallery_1.html">Gallery_1</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="gallery_2.html">Canberra</a>
+                    <a class="nav-link" href="gallery_2.html">Gallery_2</a>
                 </li>
                 
             </ul>
@@ -64,31 +64,29 @@
 
     <!-- BS4 JQUERY AND POPPER.js CDN's -->
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
         crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
 
     <!-- local script file  -->
     <script>
-        lightbox.option({
-            'resizeDuration': 200,
-            'wrapAround': true,
-            'albumLabel': 'Image %1 of %2'
+        baguetteBox.run('.lightbox', { 
+            animation: 'slideIn',
+            captions: function(element) {
+                return element.getElementsByTagName('img')[0].alt;
+            },
+            buttons: 'auto',
+            fullScreen: false,
+            noScrollbars: false
         });
 
-        document.addEventListener('click', function(e) {
-            // 检查是否点击的是灯箱中的图片
-            if (e.target.closest('.lightbox')) {
-                lightbox.start(e.target.closest('.lightbox'));
-            }
-        });
     </script>
     <script>
-        fetch('gallery_1.md')
+        fetch('gallery_2.md')
             .then(res => res.text())
             .then(md => {
                 const lines = md.split('\n');
@@ -99,46 +97,46 @@
 
                 lines.forEach(line => {
                     if (line.startsWith('# ')) {
+                        // 新栏目前，保存上一张图片
                         if (currentImg && currentGallery) {
                             currentGallery.images.push(currentImg);
                             currentImg = null;
                         }
+                        // 保存上一个栏目
                         if (currentGallery) galleries.push(currentGallery);
                         currentGallery = { name: line.replace('# ', '').trim(), images: [] };
                         currentFolder = '';
                     } else if (line.startsWith('## ')) {
+                        // 新文件夹前，保存上一张图片
                         if (currentImg && currentGallery) {
                             currentGallery.images.push(currentImg);
                             currentImg = null;
                         }
                         currentFolder = line.replace('## ', '').trim();
                     } else if (line.startsWith('### ')) {
+                        // 新图片前，保存上一张图片
                         if (currentImg && currentGallery) {
                             currentGallery.images.push(currentImg);
                         }
                         currentImg = {
                             name: line.replace('### ', '').trim(),
                             desc: '',
-                            folder: currentFolder,
-                            date: extractDate(line.replace('### ', '').trim()) // 提取时间
+                            folder: currentFolder
                         };
-                    } else if (line.trim() && currentImg && !currentImg.desc) {
+                    } else if (line.trim() && currentImg) {
                         currentImg.desc = line.trim();
                     }
                 });
+                // 循环结束后，保存最后一张图片和栏目
                 if (currentImg && currentGallery) currentGallery.images.push(currentImg);
                 if (currentGallery) galleries.push(currentGallery);
 
-                // 按时间排序
-                galleries.forEach(gallery => {
-                    gallery.images.sort((a, b) => b.date - a.date);
-                });
-
-                // 渲染逻辑保持不变
+                // 渲染所有栏目
                 const gridRow = document.getElementById('row-1');
                 galleries.forEach(gallery => {
+                    // 动态插入栏目大标题
                     const h2 = document.createElement('h2');
-                    h2.innerHTML = `&lt; ${gallery.name} &gt;`;
+                    h2.innerHTML = `&lt; ${gallery.name} /&gt;`;
                     h2.style.width = "100%";
                     gridRow.appendChild(h2);
 
@@ -146,33 +144,20 @@
                     hr.className = "hr";
                     gridRow.appendChild(hr);
 
+                    // 图片
                     gallery.images.forEach(img => {
                         const col = document.createElement('div');
                         col.className = "col-md-6 col-lg-4 item";
-
-                        let displayDesc = img.desc;
-                        if (!displayDesc || displayDesc.trim() === '') {
-                            const fileName = img.name.replace(/\.[^/.]+$/, "");
-                            displayDesc = fileName.replace(/_/g, ' ').replace(/\d+$/, '').trim();
-                        }
-
                         col.innerHTML = `
-                            <a href="${img.folder}/${img.name}" data-lightbox="gallery" data-title="${displayDesc}">
-                                <img class="img-fluid image scale-on-hover" src="${img.folder}/${img.name}" alt="${displayDesc}">
+                            <a class="lightbox" href="${img.folder}/${img.name}">
+                                <img class="img-fluid image scale-on-hover" src="${img.folder}/${img.name}">
                             </a>
-                            <div class="mt-2 text-center text-muted" style="font-size: 0.95em;">${displayDesc}</div>
+                            <div class="mt-2 text-center text-muted" style="font-size: 0.95em;">${img.desc}</div>
                         `;
                         gridRow.appendChild(col);
                     });
                 });
             });
-
-        // 提取时间的函数
-        function extractDate(fileName) {
-            const parts = fileName.split('_');
-            const datePart = parts[parts.length - 2]; // 倒数第二部分是时间
-            return new Date(datePart.replace(/-/g, '/')); // 转换为Date对象
-        }
     </script>
 
 </body>
