@@ -7,6 +7,7 @@
 - [Big Data Research](https://www.sciencedirect.com/journal/big-data-research)
 - [Engineering Applications of Artificial Intelligence](https://www.sciencedirect.com/journal/engineering-applications-of-artificial-intelligence)
 - [BMC Infectious Diseases](https://bmcinfectdis.biomedcentral.com/)
+- [Scientific Reports](https://www.nature.com/srep/)
 
 ## Talk
 - Oct 2019, ["Movie box office prediction based on ensemble learning"](https://ieeexplore.ieee.org/document/8958631) at [ISPCE-CN 2019](https://ieeexplore.ieee.org/xpl/conhome/8954856/proceeding)
